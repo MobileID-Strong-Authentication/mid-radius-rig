@@ -1,0 +1,67 @@
+version: '3.7' 
+services:
+
+  mid-radius-rig:
+    # Choose either Registry Option 1 (Docker Hub) or Option 2 (AWS ECR)
+    # Option 1: Pull image from Docker Hub
+    image: mobileidch/mid-radius-rig:latest
+    # Option 2: Pull image from AWS ECR
+    # image: public.ecr.aws/r4c1w5d3/mid-radius-rig:latest  
+    hostname: "rig_gateway"
+    ports:
+      - "1812/udp"
+    links:
+      - redis
+    restart: always
+    environment:
+      - Logging__LogLevel__Default=Information
+      - Logging__LogLevel__Microsoft=Information
+      - Logging__LogLevel__Microsoft.Hosting.Lifetime=Warning
+      - Logging__LogLevel__Microsoft.Extensions.Diagnostics.HealthChecks=Error
+      - Logging__LogLevel__Flexinets.Radius.RadiusServer=Trace
+      - Logging__LogLevel__Flexinets.Radius.Core=Trace
+      - ENVIRONMENT=Production
+      - MID_CLIENT_CERTIFICATE=<base64-encoded-pfx>
+      - RadiusServer__Port=1812
+      - RadiusServer__OtpValiditySeconds=120
+      - RadiusServer__OtpMaxAllowedLoginAttempts=3
+      - RadiusServer__CustomerConfigSource=KeyValueStorage
+      - Schnittstellen__MobileIdClient__Host=https://mobileid.swisscom.com
+      - Schnittstellen__MobileIdClient__ClientCertFromEnv=true
+    
+  redis:
+    image: redis:latest
+    container_name: "rig_redis"
+    hostname: "rig_redis"
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+    restart: always
+    
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: "rig_redis_commander"
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+      - HTTP_USER=admin
+      - HTTP_PASSWORD=secret
+    ports:
+      - 8081:8081
+    depends_on:
+      - redis
+    restart: always
+    
+  nginx:    
+    image: nginx:latest
+    container_name: "rig_nginx"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf  
+    depends_on:
+      - mid-radius-rig
+    ports:
+      - "11812:1812/udp"
+    
+volumes:
+  redis-data:
