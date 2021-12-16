@@ -1,0 +1,231 @@
+##############################################################################################################################
+# Sample I18N Error Message JSON Configuration for REDIS                                                                     # 
+##############################################################################################################################
+
+Instruction: Below is a sample I18N error message configuration.
+The configuration is globally for all customers.
+
+Please note: The RIG application must be restarted after a configuration change!
+
+- Key = I18N_MESSAGES
+- VALUE (Type String) = ... use the JSON sample below
+
+[ 
+    { 
+      "Key": "DefaultErrorMessage", 
+      "De": "Authentication failed (DE)", 
+      "Fr": "Authentication failed (FR)", 
+      "It": "Authentication failed (IT)", 
+      "En": "Authentication failed" 
+    }, 
+    { 
+      "Key": "Mid_105", 
+      "De": "This phone number is an unknown Mobile ID number. (DE)", 
+      "Fr": "This phone number is an unknown Mobile ID number. (FR)", 
+      "It": "This phone number is an unknown Mobile ID number. (IT)", 
+      "En": "This phone number is an unknown Mobile ID number." 
+    }, 
+    { 
+      "Key": "Mid_208", 
+      "De": "The Mobile ID authentication session took too long (expired). Please try again. (DE)", 
+      "Fr": "The Mobile ID authentication session took too long (expired). Please try again. (FR)", 
+      "It": "The Mobile ID authentication session took too long (expired). Please try again. (IT)", 
+      "En": "The Mobile ID authentication session took too long (expired). Please try again." 
+    }, 
+    { 
+      "Key": "Mid_401", 
+      "De": "The Mobile ID authentication was cancelled by the user. (DE)", 
+      "Fr": "The Mobile ID authentication was cancelled by the user. (FR)", 
+      "It": "The Mobile ID authentication was cancelled by the user. (IT)", 
+      "En": "The Mobile ID authentication was cancelled by the user." 
+    }, 
+    { 
+      "Key": "Mid_402", 
+      "De": "The Mobile ID PIN is blocked. Please visit https://mobileid.ch and activate Mobile ID. (DE)", 
+      "Fr": "The Mobile ID PIN is blocked. Please visit https://mobileid.ch and activate Mobile ID. (FR)", 
+      "It": "The Mobile ID PIN is blocked. Please visit https://mobileid.ch and activate Mobile ID. (IT)", 
+      "En": "The Mobile ID PIN is blocked. Please visit https://mobileid.ch and activate Mobile ID." 
+    }, 
+    { 
+      "Key": "Mid_404", 
+      "De": "No active Mobile ID found. Please visit https://mobileid.ch and activate Mobile ID. (DE)", 
+      "Fr": "No active Mobile ID found. Please visit https://mobileid.ch and activate Mobile ID. (FR)", 
+      "It": "No active Mobile ID found. Please visit https://mobileid.ch and activate Mobile ID. (IT)", 
+      "En": "No active Mobile ID found. Please visit https://mobileid.ch and activate Mobile ID." 
+    }, 
+    { 
+      "Key": "Mid_406", 
+      "De": "There is already a Mobile ID authentication on-going. Please wait and try again. (DE)", 
+      "Fr": "There is already a Mobile ID authentication on-going. Please wait and try again. (FR)", 
+      "It": "There is already a Mobile ID authentication on-going. Please wait and try again. (IT)", 
+      "En": "There is already a Mobile ID authentication on-going. Please wait and try again." 
+    }, 
+    { 
+      "Key": "Mid_422", 
+      "De": "No active Mobile ID found. Please visit https://mobileid.ch and activate Mobile ID. (DE)", 
+      "Fr": "No active Mobile ID found. Please visit https://mobileid.ch and activate Mobile ID. (FR)", 
+      "It": "No active Mobile ID found. Please visit https://mobileid.ch and activate Mobile ID. (IT)", 
+      "En": "No active Mobile ID found. Please visit https://mobileid.ch and activate Mobile ID." 
+    }, 
+    { 
+      "Key": "MidGeo_100", 
+      "De": "Please enable the Geofencing toggle in the MobileID App. (DE)", 
+      "Fr": "Please enable the Geofencing toggle in the MobileID App. (FR)", 
+      "It": "Please enable the Geofencing toggle in the MobileID App. (IT)", 
+      "En": "Please enable the Geofencing toggle in the MobileID App." 
+    }, 
+    { 
+      "Key": "MidGeo_101", 
+      "De": "The app failed to retrieve the user location possibly due to insufficient resources or a timeout. (DE)", 
+      "Fr": "The app failed to retrieve the user location possibly due to insufficient resources or a timeout. (FR)", 
+      "It": "The app failed to retrieve the user location possibly due to insufficient resources or a timeout. (IT)", 
+      "En": "The app failed to retrieve the user location possibly due to insufficient resources or a timeout." 
+    }, 
+    { 
+      "Key": "MidGeo_102", 
+      "De": "The user has not yet responded to the dialog that grants the app permission to access location services. (DE)", 
+      "Fr": "The user has not yet responded to the dialog that grants the app permission to access location services. (FR)", 
+      "It": "The user has not yet responded to the dialog that grants the app permission to access location services. (IT)", 
+      "En": "The user has not yet responded to the dialog that grants the app permission to access location services." 
+    }, 
+    { 
+      "Key": "MidGeo_103", 
+      "De": "The user has explicitly denied the app permission to access location services. (DE)", 
+      "Fr": "The user has explicitly denied the app permission to access location services. (FR)", 
+      "It": "The user has explicitly denied the app permission to access location services. (IT)", 
+      "En": "The user has explicitly denied the app permission to access location services." 
+    }, 
+    { 
+      "Key": "MidGeo_104", 
+      "De": "The user cannot enable location services possibly due to active restrictions such as parental controls, corporate policy etc. being in place. (DE)", 
+      "Fr": "The user cannot enable location services possibly due to active restrictions such as parental controls, corporate policy etc. being in place. (FR)", 
+      "It": "The user cannot enable location services possibly due to active restrictions such as parental controls, corporate policy etc. being in place. (IT)", 
+      "En": "The user cannot enable location services possibly due to active restrictions such as parental controls, corporate policy etc. being in place." 
+    }, 
+    { 
+      "Key": "MidGeo_105", 
+      "De": "The user has turned off location services device-wide (for all apps) from the system settings. (DE)", 
+      "Fr": "The user has turned off location services device-wide (for all apps) from the system settings. (FR)", 
+      "It": "The user has turned off location services device-wide (for all apps) from the system settings. (IT)", 
+      "En": "The user has turned off location services device-wide (for all apps) from the system settings." 
+    }, 
+    { 
+      "Key": "MidGeo_106", 
+      "De": "Location services are unavailable because the device is in Airplane mode. (DE)", 
+      "Fr": "Location services are unavailable because the device is in Airplane mode. (FR)", 
+      "It": "Location services are unavailable because the device is in Airplane mode. (IT)", 
+      "En": "Location services are unavailable because the device is in Airplane mode." 
+    }, 
+    { 
+      "Key": "MidGeo_120", 
+      "De": "Location failed to the app for an unspecified reason. (DE)", 
+      "Fr": "Location failed to the app for an unspecified reason. (FR)", 
+      "It": "Location failed to the app for an unspecified reason. (IT)", 
+      "En": "Location failed to the app for an unspecified reason." 
+    }, 
+    { 
+      "Key": "MidGeo_122", 
+      "De": "This Application Provider is not authorized to use Geofencing additional service. (DE)", 
+      "Fr": "This Application Provider is not authorized to use Geofencing additional service. (FR)", 
+      "It": "This Application Provider is not authorized to use Geofencing additional service. (IT)", 
+      "En": "This Application Provider is not authorized to use Geofencing additional service." 
+    }, 
+    { 
+      "Key": "MidGeo_123", 
+      "De": "User has a non-Swisscom SIM card. (DE)", 
+      "Fr": "User has a non-Swisscom SIM card. (FR)", 
+      "It": "User has a non-Swisscom SIM card. (IT)", 
+      "En": "User has a non-Swisscom SIM card." 
+    }, 
+    { 
+      "Key": "MidGeo_200", 
+      "De": "No location returned from mobile app. (DE)", 
+      "Fr": "No location returned from mobile app. (FR)", 
+      "It": "No location returned from mobile app. (IT)", 
+      "En": "No location returned from mobile app." 
+    }, 
+    { 
+      "Key": "MidGeo_201", 
+      "De": "App outdated, geofencing not supported. (DE)", 
+      "Fr": "App outdated, geofencing not supported. (FR)", 
+      "It": "App outdated, geofencing not supported. (IT)", 
+      "En": "App outdated, geofencing not supported." 
+    }, 
+    { 
+      "Key": "LdapInvalidCredentials", 
+      "De": "LDAP user authentication failed. Please verify your LDAP credentials and try again. (DE)", 
+      "Fr": "LDAP user authentication failed. Please verify your LDAP credentials and try again. (FR)", 
+      "It": "LDAP user authentication failed. Please verify your LDAP credentials and try again. (IT)", 
+      "En": "LDAP user authentication failed. Please verify your LDAP credentials and try again." 
+    }, 
+    { 
+      "Key": "LdapUserNotFound", 
+      "De": "LDAP user authentication failed. Please verify your LDAP credentials and try again. (DE)", 
+      "Fr": "LDAP user authentication failed. Please verify your LDAP credentials and try again. (FR)", 
+      "It": "LDAP user authentication failed. Please verify your LDAP credentials and try again. (IT)", 
+      "En": "LDAP user authentication failed. Please verify your LDAP credentials and try again." 
+    }, 
+    { 
+      "Key": "RigOtpMaxAllowedLoginAttemptsExeeded", 
+      "De": "The maximum number of OTP login attempts has been exceeded (DE)", 
+      "Fr": "The maximum number of OTP login attempts has been exceeded (FR)", 
+      "It": "The maximum number of OTP login attempts has been exceeded (IT)", 
+      "En": "The maximum number of OTP login attempts has been exceeded" 
+    }, 
+    { 
+      "Key": "RigOtpMismatch", 
+      "De": "The One-Time-Password entered is invalid. (DE)", 
+      "Fr": "The One-Time-Password entered is invalid. (FR)", 
+      "It": "The One-Time-Password entered is invalid. (IT)", 
+      "En": "The One-Time-Password entered is invalid." 
+    }, 
+    { 
+      "Key": "RigMfaMehtodNotSupported", 
+      "De": "The user's preferred MFA method is not allowed by the customer configuration (DE)", 
+      "Fr": "The user's preferred MFA method is not allowed by the customer configuration (FR)", 
+      "It": "The user's preferred MFA method is not allowed by the customer configuration (IT)", 
+      "En": "The user's preferred MFA method is not allowed by the customer configuration" 
+    }, 
+    { 
+      "Key": "RigNoMfaMethodFound", 
+      "De": "No valid MFA method found for the given user. No fallback to OTP allowed. (DE)", 
+      "Fr": "No valid MFA method found for the given user. No fallback to OTP allowed. (FR)", 
+      "It": "No valid MFA method found for the given user. No fallback to OTP allowed. (IT)", 
+      "En": "No valid MFA method found for the given user. No fallback to OTP allowed." 
+    }, 
+    { 
+      "Key": "RigLocationValidationFailed", 
+      "De": "The user's current country code is not allowed (DE)", 
+      "Fr": "The user's current country code is not allowed (FR)", 
+      "It": "The user's current country code is not allowed (IT)", 
+      "En": "The user's current country code is not allowed" 
+    }, 
+    { 
+      "Key": "RigLocationDeviceConfidenceTooLow", 
+      "De": "The user's current device confidence score is too low (DE)", 
+      "Fr": "The user's current device confidence score is too low (FR)", 
+      "It": "The user's current device confidence score is too low (IT)", 
+      "En": "The user's current device confidence score is too low" 
+    }, 
+    { 
+      "Key": "RigLocationLocationConfidenceTooLow", 
+      "De": "The user's current location confidence score is too low (DE)", 
+      "Fr": "The user's current location confidence score is too low (FR)", 
+      "It": "The user's current location confidence score is too low (IT)", 
+      "En": "The user's current location confidence score is too low" 
+    }, 
+    { 
+      "Key": "RigOtpInvalidMsisdn", 
+      "De": "No valid MSISDN could be extracted from the User-Name value (DE)", 
+      "Fr": "No valid MSISDN could be extracted from the User-Name value (FR)", 
+      "It": "No valid MSISDN could be extracted from the User-Name value (IT)", 
+      "En": "No valid MSISDN could be extracted from the User-Name value" 
+    }, 
+    { 
+      "Key": "RigSerialNumberMismatch", 
+      "De": "MIDCHE-SerialNumber mismatch (the value retrieved from the Sign Response did not match with the value retrieved from the user's LDAP SerialNrAttribute) (DE)", 
+      "Fr": "MIDCHE-SerialNumber mismatch (the value retrieved from the Sign Response did not match with the value retrieved from the user's LDAP SerialNrAttribute) (FR)", 
+      "It": "MIDCHE-SerialNumber mismatch (the value retrieved from the Sign Response did not match with the value retrieved from the user's LDAP SerialNrAttribute) (IT)", 
+      "En": "MIDCHE-SerialNumber mismatch (the value retrieved from the Sign Response did not match with the value retrieved from the user's LDAP SerialNrAttribute)" 
+    }
+]
