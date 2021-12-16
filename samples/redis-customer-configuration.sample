@@ -1,0 +1,103 @@
+##############################################################################################################################
+# Sample Customer JSON Configuration for REDIS                                                                               # 
+##############################################################################################################################
+
+Instruction: Below is a sample customer configuration.
+You can add multiple customer entries, each with a unique `NasIdentifier` value.
+
+- Key = CUSTOMER_CONFIG_<NasIdentifier>
+- VALUE (Type String) = ... use the JSON sample below
+
+{
+  "Customer": "My Company XYZ",
+  "ApId": "mid://ap.mycompany.ch",
+  "NasIdentifier": "ch_mycompany",
+  "RadiusSharedSecret": "MyVeryStrongSharedSecret",
+  "UseLdap": true,
+  "Ldap": {
+    "HostName": "10.0.0.5",
+    "Port": 389,
+    "EnableSsl": false,
+    "AdminUser": "cn=admin,dc=mycompany,dc=ch",
+    "AdminPassword": "MyAdminPassword",
+    "UserSearchBase": "ou=users,dc=mycompany,dc=ch",
+    "UserSearchFilter": "(&(objectclass=inetOrgPerson)(uid={0}))",
+    "ValidateUserPassword": true,
+    "MobileNrAttribute": "mobile",
+    "LanguageAttribute": "preferredLanguage",
+    "SerialNrAttribute": "msNPCallingStationID",
+    "MfaMethod": {
+      "AttributeName": "mfaType",
+      "Mappings": {
+        "Sim": "Sim",
+        "App": "App",
+        "Otp": "Otp"
+      }
+    }
+  },
+  "Geofencing": {
+    "Activate": true,
+    "Whitelist": [
+      "CH",
+      "DE"
+    ],
+    "Blacklist": [
+      "US"
+    ],
+    "MinimalDeviceConfidence": 0.7,
+    "MinimalLocationConfidence": 0.7
+  },
+  "DefaultLanguage": "en",
+  "ValidateSerialNr": false,
+  "UseUserLanguage": false,
+  "UseUserMfaMethod": true,
+  "MfaMethods": [
+    "SIM",
+    "APP",
+    "OTP"
+  ],
+  "Otp": {
+    "Length": 5,
+    "Mode": "Text",
+    "DefaultText": "Your MobileID Code is {0}",
+    "Messages": [
+      {
+        "Code": "de",
+        "Text": "Ihr MobileID Code ist {0}"
+      },
+      {
+        "Code": "fr",
+        "Text": "Votre MobileID Code est {0}"
+      },
+      {
+        "Code": "it",
+        "Text": "Il MobileID Code è {0}"
+      },
+      {
+        "Code": "en",
+        "Text": "Your MobileID Code is {0}"
+      }
+    ]
+  },
+  "SimApp": {
+    "DefaultText": "Please enter your Mobile ID code",
+    "Messages": [
+      {
+        "Code": "de",
+        "Text": "Mobile ID Code eingeben"
+      },
+      {
+        "Code": "fr",
+        "Text": "Mobile ID Code eingeben"
+      },
+      {
+        "Code": "it",
+        "Text": "Mobile ID Code eingeben"
+      },
+      {
+        "Code": "en",
+        "Text": "Please enter your Mobile ID code"
+      }
+    ]
+  }
+}
