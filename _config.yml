@@ -1,1 +1,5 @@
+title: MobileID RIG - RADIUS Interface Gateway
+description: RADIUS server which supports MFA step-up using MobileID
+show_downloads: false
+google_analytics:
 theme: jekyll-theme-modernist
