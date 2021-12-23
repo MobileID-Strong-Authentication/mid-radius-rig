@@ -1,8 +1,3 @@
-# Documentation
-
-- **Maintained by:** [Swisscom (Switzerland) Ltd](https://www.swisscom.ch/mid)
-- **Where to get help:** [mobileid.ch](https://www.mobileid.ch/en/contact)
-
 ## What is MobileID Radius Interface Gateway?
 
 This dockerized image of the MobileID Radius Interface Gateway is intended to provide RADIUS server functionality incl. MobileID MFA, Geofencing and multitenancy support. Optionally, LDAP can be configured to retrieve user attributes such as the user's user-password, mobile number, Mobile ID serial, preferred MFA option, etc.
