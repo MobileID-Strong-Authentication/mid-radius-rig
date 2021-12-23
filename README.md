@@ -1,6 +1,6 @@
 ## MobileID Radius Interface Gateway
-MobileID Radius Interface Gateway is intended to provide RADIUS server functionality incl. MobileID MFA, Geofencing and multitenancy support. Optionally, LDAP can be configured to retrieve user attributes such as the user's user-password, mobile number, Mobile ID serial, preferred MFA option, etc.
+Full documentation on [GitHub Pages](https://mid-radius-rig.mobileid.ch)
 
-The mid-radius-rig container application has a cloud-native microservice architecture and supports horizontal scalability.
-
-The full documentation can be found on [GitHub Pages](https://mid-radius-rig.mobileid.ch)
+##### Docker Image links
+- [Docker Hub](https://hub.docker.com/repository/docker/mobileidch/mid-radius-rig)
+- [Amazon ECR](https://gallery.ecr.aws/r4c1w5d3/mid-radius-rig)
