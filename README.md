@@ -3,4 +3,4 @@ MobileID Radius Interface Gateway is intended to provide RADIUS server functiona
 
 The mid-radius-rig container application has a cloud-native microservice architecture and supports horizontal scalability.
 
-The full documentation can be found on [GitHub Pages](https://mobileid-strong-authentication.github.io/mid-radius-rig/)
+The full documentation can be found on [GitHub Pages](https://mid-radius-rig.mobileid.ch)
