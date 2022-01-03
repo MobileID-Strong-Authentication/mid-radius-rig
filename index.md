@@ -61,7 +61,7 @@ $ docker pull mobileidch/mid-radius-rig
 Pull image from AWS ECR Public Gallery:
 
 ```shell
-$ docker pull public.ecr.aws/r4c1w5d3/mid-radius-rig
+$ docker pull public.ecr.aws/mobileidch/mid-radius-rig
 ```
 
 #### Docker Run
