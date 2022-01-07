@@ -45,12 +45,12 @@ The container application `mid-radius-rig` has the following dependencies if you
 
 #### Default Ports
 
-- `1812/udp` Radius port
-- `80/tcp` Container health check port [optional]
+- `1812/udp` Radius port, required
+- `80/tcp` Container health check port, optional
 
 #### Docker Pull
 
-You can pull the image either from Docker Hub or from AWS ECR.
+You can pull the image either from [Docker Hub](https://hub.docker.com/r/mobileidch/mid-radius-rig) or from [Amazone ECR](https://gallery.ecr.aws/mobileidch/mid-radius-rig).
 
 Pull image from Docker Hub:
 
@@ -75,7 +75,7 @@ $ docker run -d -p 1812:1812/udp --env-file <my-env-file> mobileidch/mid-radius-
 or
 
 ```shell
-$ docker run -d -p 1812:1812/udp --env-file <my-env-file> public.ecr.aws/r4c1w5d3/mid-radius-rig
+$ docker run -d -p 1812:1812/udp --env-file <my-env-file> public.ecr.aws/mobileidch/mid-radius-rig
 ```
 
 ### Sample Environment Setup
@@ -83,7 +83,7 @@ $ docker run -d -p 1812:1812/udp --env-file <my-env-file> public.ecr.aws/r4c1w5d
 #### Development Environment
 
 In this setup we run a single RIG container instance with in-memory data source.
-This is a very simplified setup for testing purpose only. We don't need a Redis database.
+This is a very simplified setup for testing purpose only and we don't need a Redis database.
 
 However, One-Time-Password (OTP) authentication is not supported without the use of a Redis database!
 
@@ -143,6 +143,11 @@ RIG customer configuration with LDAP (`mid-radius-rig` will retrieve the user's 
 ```
 $ echo "User-Name=<username>,User-Password=<user-password>,NAS-Identifier=<ch_mycompany>" | radclient -c 1 -r 1 -x -t 30 <server-ip> auth <shared-secret>
 ```
+
+## Contact
+
+- **Maintained by:** [Swisscom (Switzerland) Ltd](https://www.swisscom.ch/mid)
+- **Where to get help:** [mobileid.ch](https://www.mobileid.ch/en/contact)
 
 ## License
 
