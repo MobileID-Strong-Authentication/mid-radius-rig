@@ -50,7 +50,7 @@ The container application `mid-radius-rig` has the following dependencies if you
 
 #### Docker Pull
 
-You can pull the image either from [Docker Hub](https://hub.docker.com/r/mobileidch/mid-radius-rig) or from [Amazone ECR](https://gallery.ecr.aws/mobileidch/mid-radius-rig).
+You can pull the image either from [Docker Hub](https://hub.docker.com/r/mobileidch/mid-radius-rig) or from [Amazon ECR](https://gallery.ecr.aws/mobileidch/mid-radius-rig).
 
 Pull image from Docker Hub:
 
