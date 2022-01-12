@@ -124,7 +124,7 @@ Please make sure that both `docker-compose.yml` and `nginx.conf` exist in the sa
 $ docker-compose up --scale mid-radius-rig=3
 ```
 
-## Test
+## How To Test
 
 `radclient` is a radius client program. It can send arbitrary radius packets to a radius server, then shows the reply. It can be used to test changes you made in the configuration of the radius server, or it  can  be  used  to monitor if a radius server is up.
 
@@ -144,6 +144,35 @@ RIG customer configuration with LDAP (`mid-radius-rig` will retrieve the user's 
 
 ```
 $ echo "User-Name=<username>,User-Password=<user-password>,NAS-Identifier=<ch_mycompany>" | radclient -c 1 -r 1 -x -t 30 <server-ip> auth <shared-secret>
+```
+
+## Troubleshooting
+#### LDAP
+
+When troubleshooting issues it may be useful to test user credentials directly against the LDAP server.
+Testing user authentication with ldapwhoami:
+
+```
+$ ldapwhoami -x -w <passwd> -D "cn=<tbd>,ou=<tbd>,dc=<tbd>,dc=<tbd>" -H ldap://<ldap.myserver.com>:389
+```
+
+Using ldapsearch to debug LDAP configuration problems:
+
+```
+$ ldapsearch -LLL -H ldap://<ldap.myserver.com>:389 -b "ou=<tbd>,dc=<tbd>,dc=<tbd>" -D "cn=<admin>,dc=<tbd>,dc=<tbd>" -w <passwd> -s sub "(&(objectclass=inetOrgPerson)(uid=<user>))"
+```
+
+#### Connectivity Test
+
+There are many ways how to verify the connectivity to a remote host.
+In case you have `openssl` installed you may try these commands to verify the connectivity to these endpoints:
+
+```
+$ openssl s_client -connect mobileid.swisscom.com:443
+```
+
+```
+$ openssl s_client -connect ldap.mobileid.tech:389
 ```
 
 ## Contact
