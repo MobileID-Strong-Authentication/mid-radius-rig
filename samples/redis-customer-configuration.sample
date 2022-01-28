@@ -1,29 +1,34 @@
-﻿##############################################################################################################################
+##############################################################################################################################
 # Sample Customer JSON Configuration for REDIS                                                                               # 
 ##############################################################################################################################
 
 Below is a sample customer configuration for REDIS.
-You may configure one or multiple customers. Below is an example customer configuration.
+You may configure one or multiple customers. Below is an example JSON entry.
 
-Remarks about some of the JSON configuration elements...
+Q: How is an Access-Request packet mapped to the correct customer JSON entry?
+A: The RIG application looks for a match between the inbound Access-Request packet's source IP address and any existing "SourceIps"-entries in the configuration.
+   If none of the "SourceIps" match, it looks for a match between the inbound Access-Request's "NAS-Identifier"-attribute and any existing "NasIdentifier"-entries in the configuration.
+   Make sure the customer configuration uses either unique "SourceIps"-entries or unqiue "NasIdentifier"-entries.
 
-- UnusedMidServiceEvent: 
+Description for some of the configuration elements:
+
+- "UnusedMidServiceEvent"-configuration
     # Customer Text SMS Notification for inactive MobileID Users (OPTIONAL)
     # Text SMS is sent after detecting a user access-request with an inactive MobileID SIM or MobileID App, with a configurable delay -> ExecutionDelayMinutes
     # Text SMS is sent to this user only once every x days -> NotificationIntervalDays
     # AppSmsText: User didn't have an active MobileID SIM nor active MobileID App and the SIM is NOT MobileID compliant! -> Inform the user about MobileID App activation
     # SimSmsText: User didn't have an active MobileID SIM nor active MobileID App and the SIM IS MobileID compliant!     -> Inform the user about MobileID SIM activation
 
-- ErrorNotificationEvent:
+- "ErrorNotificationEvent"-configuration
     # Customer Text SMS Notification in case of an Access-Reject (OPTIONAL)
     # The "ErrorCode"-value can be one of all the supported "I18nMessages"-Keys (refer to the 'redis-i18n-errormsg-configuration.sample')
     # For example a value for ErrorCode may be "Mid_401", "MidGeo_100", "RigSerialNumberMismatch", etc.
     # Text SMS is sent after detecting a user access-request with an inactive MobileID SIM or MobileID App, with a configurable delay -> ExecutionDelayMinutes
     # Text SMS is sent to this user only once every x days -> NotificationIntervalDays
 
-# Please enter each customer JSON to the Redis database as follows:
-- Key = CUSTOMER_CONFIG_<ApId>
-- VALUE (Type String) = <use JSON-sample below>
+# Please enter each customer JSON to the Redis database as follows
+- Key = CUSTOMER_CONFIG_<any-unique-customer-identifier>
+- VALUE (Type String) = <a-JSON-similar-to-the-example-below>
 
 JSON example: (Please remove the #-comments from the JSON)
 
