@@ -9,6 +9,7 @@ Q: How is an Access-Request packet mapped to the correct customer JSON entry?
 A: The RIG application looks for a match between the inbound Access-Request packet's source IP address and any existing "SourceIps"-entries in the configuration.
    If none of the "SourceIps" match, it looks for a match between the inbound Access-Request's "NAS-Identifier"-attribute and any existing "NasIdentifier"-entries in the configuration.
    Make sure the customer configuration uses either unique "SourceIps"-entries or unqiue "NasIdentifier"-entries.
+   Make sure each customer entry has its unique "ApId"-entry.
 
 Description for some of the configuration elements:
 
@@ -27,7 +28,7 @@ Description for some of the configuration elements:
     # Text SMS is sent to this user only once every x days -> NotificationIntervalDays
 
 # Please enter each customer JSON to the Redis database as follows
-- Key = CUSTOMER_CONFIG_<any-unique-customer-identifier>
+- Key = CUSTOMER_CONFIG_<any-unique-customer-identifier-such-as-ApId>
 - VALUE (Type String) = <a-JSON-similar-to-the-example-below>
 
 JSON example: (Please remove the #-comments from the JSON)
