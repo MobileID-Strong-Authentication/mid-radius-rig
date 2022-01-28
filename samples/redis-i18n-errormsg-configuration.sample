@@ -1,14 +1,42 @@
-##############################################################################################################################
-# Sample I18N Error Message JSON Configuration for REDIS                                                                     # 
+﻿##############################################################################################################################
+Sample I18N Error Message JSON Configuration for REDIS                                                                     
 ##############################################################################################################################
 
-Instruction: Below is a sample I18N error message configuration.
+Below is a sample I18N error message configuration for REDIS. This allows you to customize any Reply-Message content for Access-Reject packets, in 4 different languages.
 The configuration is globally for all customers.
 
 Please note: The RIG application must be restarted after a configuration change!
 
 - Key = I18N_MESSAGES
-- VALUE (Type String) = ... use the JSON sample below
+- VALUE (Type String) = <use JSON-sample below>
+
+- FULL LIST OF SUPPORTED KEY VALUES. If you like you can add or remove Key-entries from the sample JSON below.
+    Key=Mid_{code}    -> Replace {code} with any 3-digit MobileID API error code as specified in the MobileID Client Reference Guide, for example: "Mid_401" (The Mobile ID authentication was cancelled by the user)
+    Key=MidGeo_{code} -> Replace {code} with any 3-digit MobileID Geofencing error code as specified in the MobileID Client Reference Guide, for example: "MidGeo_100" (MobileID App Geofencing toggle was not enabled)
+    Key=MidInvalidSerialNumber
+    Key=LdapInvalidCredentials
+    Key=LdapUserNotFound
+    Key=LdapMissingMsisdnAttribute
+    Key=LdapMissingSerialNrAttribute
+    Key=LdapInvalidMsisdn
+    Key=LdapInvalidSerialNumber
+    Key=LdapMissingPassword
+    Key=RigMissingCustomerConfiguration
+    Key=RigOtpMaxAllowedLoginAttemptsExeeded
+    Key=RigOtpNotStored
+    Key=RigOtpMismatch
+    Key=RigMfaMehtodNotSupported
+    Key=RigNoMfaMethodFound
+    Key=RigLocationValidationFailed
+    Key=RigLocationDeviceConfidenceTooLow
+    Key=RigLocationLocationConfidenceTooLow
+    Key=RigOtpInvalidMsisdn
+    Key=RigInvalidMsisdn
+    Key=RigSerialNumberMismatch
+    Key=RigInvalidSerialNumber
+    Key=RigInvalidCustomerConfig
+
+JSON example:
 
 [ 
     { 

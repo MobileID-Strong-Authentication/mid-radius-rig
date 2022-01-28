@@ -1,12 +1,31 @@
-##############################################################################################################################
+﻿##############################################################################################################################
 # Sample Customer JSON Configuration for REDIS                                                                               # 
 ##############################################################################################################################
 
-Instruction: Below is a sample customer configuration.
-You can add multiple customer entries, each with a unique `NasIdentifier` value.
+Below is a sample customer configuration for REDIS.
+You may configure one or multiple customers. Below is an example customer configuration.
 
-- Key = CUSTOMER_CONFIG_<NasIdentifier>
-- VALUE (Type String) = ... use the JSON sample below
+Remarks about some of the JSON configuration elements...
+
+- UnusedMidServiceEvent: 
+    # Customer Text SMS Notification for inactive MobileID Users (OPTIONAL)
+    # Text SMS is sent after detecting a user access-request with an inactive MobileID SIM or MobileID App, with a configurable delay -> ExecutionDelayMinutes
+    # Text SMS is sent to this user only once every x days -> NotificationIntervalDays
+    # AppSmsText: User didn't have an active MobileID SIM nor active MobileID App and the SIM is NOT MobileID compliant! -> Inform the user about MobileID App activation
+    # SimSmsText: User didn't have an active MobileID SIM nor active MobileID App and the SIM IS MobileID compliant!     -> Inform the user about MobileID SIM activation
+
+- ErrorNotificationEvent:
+    # Customer Text SMS Notification in case of an Access-Reject (OPTIONAL)
+    # The "ErrorCode"-value can be one of all the supported "I18nMessages"-Keys (refer to the 'redis-i18n-errormsg-configuration.sample')
+    # For example a value for ErrorCode may be "Mid_401", "MidGeo_100", "RigSerialNumberMismatch", etc.
+    # Text SMS is sent after detecting a user access-request with an inactive MobileID SIM or MobileID App, with a configurable delay -> ExecutionDelayMinutes
+    # Text SMS is sent to this user only once every x days -> NotificationIntervalDays
+
+# Please enter each customer JSON to the Redis database as follows:
+- Key = CUSTOMER_CONFIG_<ApId>
+- VALUE (Type String) = <use JSON-sample below>
+
+JSON example: (Please remove the #-comments from the JSON)
 
 {
   "Customer": "My Company XYZ",
@@ -99,5 +118,52 @@ You can add multiple customer entries, each with a unique `NasIdentifier` value.
         "Text": "Please enter your Mobile ID code"
       }
     ]
+  },
+  "Events": {
+    "UnusedMidServiceEvent": {
+      "ExecutionDelayMinutes": 3,
+      "NotificationIntervalDays": 7,
+      "AppSmsText": {
+        "Default": "Please visit https://mobileid.ch/qr and activate the MobileID App",
+        "De": "Please visit https://mobileid.ch/qr and activate the MobileID App (de)",
+        "Fr": "Please visit https://mobileid.ch/qr and activate the MobileID App (fr)",
+        "It": "Please visit https://mobileid.ch/qr and activate the MobileID App (it)",
+        "En": "Please visit https://mobileid.ch/qr and activate the MobileID App (en)"
+      },
+      "SimSmsText": {
+        "Default": "Please visit https://www.mobileid.ch/de/login and activate your MobileID SIM card",
+        "De": "Please visit https://www.mobileid.ch/de/login and activate your MobileID SIM card (de)",
+        "Fr": "Please visit https://www.mobileid.ch/de/login and activate your MobileID SIM card (fr)",
+        "It": "Please visit https://www.mobileid.ch/de/login and activate your MobileID SIM card (it)",
+        "En": "Please visit https://www.mobileid.ch/de/login and activate your MobileID SIM card (en)"
+      }
+    },
+    "ErrorNotificationEvent": {
+      "ExecutionDelayMinutes": 0,
+      "HandledErrorCodes": [
+        {
+          "ErrorCode": "RigSerialNumberMismatch",
+          "NotificationIntervalDays": 1,
+          "SmsText": {
+            "Default": "Your MobileID Token has changed. Please re-register your MobileID at https://xyz.com/register before you try to access xyz.com.",
+            "De": "Your MobileID Token has changed. Please re-register your MobileID at https://xyz.com/register before you try to access xyz.com. (de)",
+            "Fr": "Your MobileID Token has changed. Please re-register your MobileID at https://xyz.com/register before you try to access xyz.com. (fr)",
+            "It": "Your MobileID Token has changed. Please re-register your MobileID at https://xyz.com/register before you try to access xyz.com. (it)",
+            "En": "Your MobileID Token has changed. Please re-register your MobileID at https://xyz.com/register before you try to access xyz.com. (en)"
+          }
+        },
+        {
+          "ErrorCode": "MidGeo_100",
+          "NotificationIntervalDays": 1,
+          "SmsText": {
+            "Default": "Hi! Please make sure to enable the Geofencing Toggle in your MobileID App",
+            "De": "Hi! Please make sure to enable the Geofencing Toggle in your MobileID App (de)",
+            "Fr": "Hi! Please make sure to enable the Geofencing Toggle in your MobileID App (fr)",
+            "It": "Hi! Please make sure to enable the Geofencing Toggle in your MobileID App (it)",
+            "En": "Hi! Please make sure to enable the Geofencing Toggle in your MobileID App (en)"
+          }
+        }
+      ]
+    }
   }
 }
