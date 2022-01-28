@@ -17,10 +17,10 @@ The `mid-radius-rig` container application has a cloud-native microservice archi
 - LDAP(S) Integration (attributes: userPassword, mobile, preferredLanguage, midSerial, preferredMFA)
 - Optional MIDCHE-serial validation
 - RADIUS Reply-Message for Access-Reject (error text fully configurable)
+- Text SMS Notification for specific envents (such as inactive MobileID user, Access-Reject, ...)
 
 ### Features planned for future releases
 - RADIUS Dynamic Fields: Allow radius clients to provide custom MSISDN, DTBD, Auth-Method
-- Delayed Text SMS Information for SIM or App activation (if neither SIM nor App was active)
 - Advanced RADIUS encryption (EAP-TLS, EAP-TTLS, PEAP, EAP-MD5, LEAP)
 - RADIUS Proxy Mode (forward Access-Request after successful MFA to another 3rd party RADIUS server)
 
