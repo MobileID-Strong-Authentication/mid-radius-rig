@@ -31,6 +31,9 @@ JSON example: (Please remove the #-comments from the JSON)
   "Customer": "My Company XYZ",
   "ApId": "mid://ap.mycompany.ch",
   "NasIdentifier": "ch_mycompany",
+  "SourceIps": [
+    "10.1.1.22/32"
+  ], 
   "RadiusSharedSecret": "MyVeryStrongSharedSecret",
   "UseLdap": true,
   "Ldap": {
