@@ -1,4 +1,4 @@
-##############################################################################################################################
+﻿##############################################################################################################################
 # Sample Customer JSON Configuration for REDIS                                                                               # 
 ##############################################################################################################################
 
@@ -133,18 +133,18 @@ JSON example: (Please remove the #-comments from the JSON)
       "ExecutionDelayMinutes": 3,
       "NotificationIntervalDays": 7,
       "AppSmsText": {
-        "Default": "Please visit https://mobileid.ch/qr and activate the MobileID App",
-        "De": "Please visit https://mobileid.ch/qr and activate the MobileID App (de)",
-        "Fr": "Please visit https://mobileid.ch/qr and activate the MobileID App (fr)",
-        "It": "Please visit https://mobileid.ch/qr and activate the MobileID App (it)",
-        "En": "Please visit https://mobileid.ch/qr and activate the MobileID App (en)"
+        "Default": "Please visit https://mobileid.ch/activate and activate the MobileID App",
+        "De": "Please visit https://mobileid.ch/activate and activate the MobileID App (de)",
+        "Fr": "Please visit https://mobileid.ch/activate and activate the MobileID App (fr)",
+        "It": "Please visit https://mobileid.ch/activate and activate the MobileID App (it)",
+        "En": "Please visit https://mobileid.ch/activate and activate the MobileID App (en)"
       },
       "SimSmsText": {
-        "Default": "Please visit https://www.mobileid.ch/de/login and activate your MobileID SIM card",
-        "De": "Please visit https://www.mobileid.ch/de/login and activate your MobileID SIM card (de)",
-        "Fr": "Please visit https://www.mobileid.ch/de/login and activate your MobileID SIM card (fr)",
-        "It": "Please visit https://www.mobileid.ch/de/login and activate your MobileID SIM card (it)",
-        "En": "Please visit https://www.mobileid.ch/de/login and activate your MobileID SIM card (en)"
+        "Default": "Please visit https://mobileid.ch/activate and activate your MobileID SIM card",
+        "De": "Please visit https://mobileid.ch/activate and activate your MobileID SIM card (de)",
+        "Fr": "Please visit https://mobileid.ch/activate and activate your MobileID SIM card (fr)",
+        "It": "Please visit https://mobileid.ch/activate and activate your MobileID SIM card (it)",
+        "En": "Please visit https://mobileid.ch/activate and activate your MobileID SIM card (en)"
       }
     },
     "ErrorNotificationEvent": {
