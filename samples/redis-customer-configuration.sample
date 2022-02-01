@@ -1,17 +1,21 @@
 ﻿##############################################################################################################################
-# Sample Customer JSON Configuration for REDIS                                                                               # 
+# Customer Configuration for REDIS (JSON)                                                                                    # 
 ##############################################################################################################################
 
+********************************************************************************************
+DESCRIPTION
+********************************************************************************************
+
 Below is a sample customer configuration for REDIS.
-You may configure one or multiple customers. Below is an example JSON entry.
+You may configure one or even multiple customers.
 
-Q: How is an Access-Request packet mapped to the correct customer JSON entry?
-A: The RIG application looks for a match between the inbound Access-Request packet's source IP address and any existing "SourceIps"-entries in the configuration.
-   If none of the "SourceIps" match, it looks for a match between the inbound Access-Request's "NAS-Identifier"-attribute and any existing "NasIdentifier"-entries in the configuration.
-   Make sure the customer configuration uses either unique "SourceIps"-entries or unqiue "NasIdentifier"-entries.
-   Make sure each customer entry has its unique "ApId"-entry.
+Q: How is an incoming "Access-Request" packet mapped to the correct customer JSON configuration?
+A: The RIG application looks for a match between the incoming "Access-Request" packet's source IP address and any existing "SourceIps"-entries in the customer configuration.
+   If none of the "SourceIps" match, it keeps trying to find a match between the inbound Access-Request "NAS-Identifier"-attribute and a matching "NasIdentifier"-entry in the customer configuration.
+   Therefore, please make sure the customer configuration has unique "SourceIps"-entries or that is has a unqiue "NasIdentifier"-entry. A "NasIdentifier"-entry is not required if a "SourceIps"-entries exist.
+   Moreover, please make sure each customer entry has its own and unique "ApId"-entry. Each customer should have its own MobileID Account (AP_ID value), so that you will get a separate MobileID usage and billing report for each customer. 
 
-Description for some of the configuration elements:
+Additional remarks for some of the JSON elements in the example below:
 
 - "UnusedMidServiceEvent"-configuration
     # Customer Text SMS Notification for inactive MobileID Users (OPTIONAL)
@@ -22,16 +26,45 @@ Description for some of the configuration elements:
 
 - "ErrorNotificationEvent"-configuration
     # Customer Text SMS Notification in case of an Access-Reject (OPTIONAL)
-    # The "ErrorCode"-value can be one of all the supported "I18nMessages"-Keys (refer to the 'redis-i18n-errormsg-configuration.sample')
     # For example a value for ErrorCode may be "Mid_401", "MidGeo_100", "RigSerialNumberMismatch", etc.
     # Text SMS is sent after detecting a user access-request with an inactive MobileID SIM or MobileID App, with a configurable delay -> ExecutionDelayMinutes
     # Text SMS is sent to this user only once every x days -> NotificationIntervalDays
 
-# Please enter each customer JSON to the Redis database as follows
-- Key = CUSTOMER_CONFIG_<any-unique-customer-identifier-such-as-ApId>
-- VALUE (Type String) = <a-JSON-similar-to-the-example-below>
+    Supported "ErrorCode" values for the "ErrorNotificationEvent" configuration:
+      Mid_{code}     -> Replace {code} with any 3-digit MobileID API error code as specified in the MobileID Client Reference Guide, for example: "Mid_401" (The MobileID authentication was cancelled by the user)
+      MidGeo_{code}  -> Replace {code} with any 3-digit MobileID Geofencing error code as specified in the MobileID Client Reference Guide, for example: "MidGeo_100" (MobileID App Geofencing toggle was not enabled)
+      MidInvalidSerialNumber
+      LdapInvalidCredentials
+      LdapUserNotFound
+      LdapMissingMsisdnAttribute
+      LdapMissingSerialNrAttribute
+      LdapInvalidMsisdn
+      LdapInvalidSerialNumber
+      LdapMissingPassword
+      RigMissingCustomerConfiguration
+      RigOtpMaxAllowedLoginAttemptsExeeded
+      RigOtpNotStored
+      RigOtpMismatch
+      RigMfaMehtodNotSupported
+      RigNoMfaMethodFound
+      RigLocationValidationFailed
+      RigLocationDeviceConfidenceTooLow
+      RigLocationLocationConfidenceTooLow
+      RigOtpInvalidMsisdn
+      RigInvalidMsisdn
+      RigSerialNumberMismatch
+      RigInvalidSerialNumber
+      RigInvalidCustomerConfig
 
-JSON example: (Please remove the #-comments from the JSON)
+Supported languages: "De" (German), "Fr" (French), "It" (Italian), "En" (English)
+
+Please add the JSON example content to REDIS:
+- As REDIS "Key" you should enter "CUSTOMER_CONFIG_<any-unique-customer-identifier-such-as-ApId>" and replace the "<...>" accordingly.
+- As REDIS "VALUE" of type "String" you should enter the JSON content below.
+
+********************************************************************************************
+JSON Example Content
+********************************************************************************************
 
 {
   "Customer": "My Company XYZ",

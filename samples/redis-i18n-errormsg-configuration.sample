@@ -1,17 +1,26 @@
 ﻿##############################################################################################################################
-Sample I18N Error Message JSON Configuration for REDIS                                                                     
+# I18N Error Message JSON Configuration for REDIS                                                                            #
 ##############################################################################################################################
 
-Below is a sample I18N error message configuration for REDIS. This allows you to customize any Reply-Message content for Access-Reject packets, in 4 different languages.
+********************************************************************************************
+DESCRIPTION
+********************************************************************************************
+
+Below is a sample I18N error message configuration for REDIS. 
+This allows you to customize any Reply-Message content that are used for Access-Reject packets.
+
 The configuration is globally for all customers.
 
-Please note: The RIG application must be restarted after a configuration change!
+Note: The RIG application must be restarted after a configuration change.
 
-- Key = I18N_MESSAGES
-- VALUE (Type String) = <use JSON-sample below>
+Please add the JSON example content to REDIS:
+- As REDIS "Key" you should enter "I18N_MESSAGES".
+- As REDIS "VALUE" of type "String" you should enter the JSON content below.
 
-- FULL LIST OF SUPPORTED KEY VALUES. If you like you can add or remove Key-entries from the sample JSON below.
-    Key=Mid_{code}    -> Replace {code} with any 3-digit MobileID API error code as specified in the MobileID Client Reference Guide, for example: "Mid_401" (The Mobile ID authentication was cancelled by the user)
+Here's a full list of supported "Key" values that can be used in the JSON example content.
+Modify the JSON example content as you like. Supported "Key" values:
+
+    Key=Mid_{code}    -> Replace {code} with any 3-digit MobileID API error code as specified in the MobileID Client Reference Guide, for example: "Mid_401" (The MobileID authentication was cancelled by the user)
     Key=MidGeo_{code} -> Replace {code} with any 3-digit MobileID Geofencing error code as specified in the MobileID Client Reference Guide, for example: "MidGeo_100" (MobileID App Geofencing toggle was not enabled)
     Key=MidInvalidSerialNumber
     Key=LdapInvalidCredentials
@@ -36,7 +45,11 @@ Please note: The RIG application must be restarted after a configuration change!
     Key=RigInvalidSerialNumber
     Key=RigInvalidCustomerConfig
 
-JSON example:
+    Supported languages: "De" (German), "Fr" (French), "It" (Italian), "En" (English)
+
+********************************************************************************************
+JSON Example Content
+********************************************************************************************
 
 [ 
     { 
@@ -48,52 +61,52 @@ JSON example:
     }, 
     { 
       "Key": "Mid_105", 
-      "De": "This phone number is an unknown Mobile ID number. (DE)", 
-      "Fr": "This phone number is an unknown Mobile ID number. (FR)", 
-      "It": "This phone number is an unknown Mobile ID number. (IT)", 
-      "En": "This phone number is an unknown Mobile ID number." 
+      "De": "This phone number is an unknown MobileID number. (DE)", 
+      "Fr": "This phone number is an unknown MobileID number. (FR)", 
+      "It": "This phone number is an unknown MobileID number. (IT)", 
+      "En": "This phone number is an unknown MobileID number." 
     }, 
     { 
       "Key": "Mid_208", 
-      "De": "The Mobile ID authentication session took too long (expired). Please try again. (DE)", 
-      "Fr": "The Mobile ID authentication session took too long (expired). Please try again. (FR)", 
-      "It": "The Mobile ID authentication session took too long (expired). Please try again. (IT)", 
-      "En": "The Mobile ID authentication session took too long (expired). Please try again." 
+      "De": "The MobileID authentication session took too long (expired). Please try again. (DE)", 
+      "Fr": "The MobileID authentication session took too long (expired). Please try again. (FR)", 
+      "It": "The MobileID authentication session took too long (expired). Please try again. (IT)", 
+      "En": "The MobileID authentication session took too long (expired). Please try again." 
     }, 
     { 
       "Key": "Mid_401", 
-      "De": "The Mobile ID authentication was cancelled by the user. (DE)", 
-      "Fr": "The Mobile ID authentication was cancelled by the user. (FR)", 
-      "It": "The Mobile ID authentication was cancelled by the user. (IT)", 
-      "En": "The Mobile ID authentication was cancelled by the user." 
+      "De": "The MobileID authentication was cancelled by the user. (DE)", 
+      "Fr": "The MobileID authentication was cancelled by the user. (FR)", 
+      "It": "The MobileID authentication was cancelled by the user. (IT)", 
+      "En": "The MobileID authentication was cancelled by the user." 
     }, 
     { 
       "Key": "Mid_402", 
-      "De": "The Mobile ID PIN is blocked. Please visit https://mobileid.ch and activate Mobile ID. (DE)", 
-      "Fr": "The Mobile ID PIN is blocked. Please visit https://mobileid.ch and activate Mobile ID. (FR)", 
-      "It": "The Mobile ID PIN is blocked. Please visit https://mobileid.ch and activate Mobile ID. (IT)", 
-      "En": "The Mobile ID PIN is blocked. Please visit https://mobileid.ch and activate Mobile ID." 
+      "De": "The MobileID PIN is blocked. Please visit https://mobileid.ch/reset and reset your MobileID PIN. (DE)", 
+      "Fr": "The MobileID PIN is blocked. Please visit https://mobileid.ch/reset and reset your MobileID PIN. (FR)", 
+      "It": "The MobileID PIN is blocked. Please visit https://mobileid.ch/reset and reset your MobileID PIN. (IT)", 
+      "En": "The MobileID PIN is blocked. Please visit https://mobileid.ch/reset and reset your MobileID PIN." 
     }, 
     { 
       "Key": "Mid_404", 
-      "De": "No active Mobile ID found. Please visit https://mobileid.ch and activate Mobile ID. (DE)", 
-      "Fr": "No active Mobile ID found. Please visit https://mobileid.ch and activate Mobile ID. (FR)", 
-      "It": "No active Mobile ID found. Please visit https://mobileid.ch and activate Mobile ID. (IT)", 
-      "En": "No active Mobile ID found. Please visit https://mobileid.ch and activate Mobile ID." 
+      "De": "No active MobileID found. Please visit https://mobileid.ch/activate and activate your MobileID. (DE)", 
+      "Fr": "No active MobileID found. Please visit https://mobileid.ch/activate and activate your MobileID. (FR)", 
+      "It": "No active MobileID found. Please visit https://mobileid.ch/activate and activate your MobileID. (IT)", 
+      "En": "No active MobileID found. Please visit https://mobileid.ch/activate and activate your MobileID." 
     }, 
     { 
       "Key": "Mid_406", 
-      "De": "There is already a Mobile ID authentication on-going. Please wait and try again. (DE)", 
-      "Fr": "There is already a Mobile ID authentication on-going. Please wait and try again. (FR)", 
-      "It": "There is already a Mobile ID authentication on-going. Please wait and try again. (IT)", 
-      "En": "There is already a Mobile ID authentication on-going. Please wait and try again." 
+      "De": "There is already a MobileID authentication on-going. Please wait and try again. (DE)", 
+      "Fr": "There is already a MobileID authentication on-going. Please wait and try again. (FR)", 
+      "It": "There is already a MobileID authentication on-going. Please wait and try again. (IT)", 
+      "En": "There is already a MobileID authentication on-going. Please wait and try again." 
     }, 
     { 
       "Key": "Mid_422", 
-      "De": "No active Mobile ID found. Please visit https://mobileid.ch and activate Mobile ID. (DE)", 
-      "Fr": "No active Mobile ID found. Please visit https://mobileid.ch and activate Mobile ID. (FR)", 
-      "It": "No active Mobile ID found. Please visit https://mobileid.ch and activate Mobile ID. (IT)", 
-      "En": "No active Mobile ID found. Please visit https://mobileid.ch and activate Mobile ID." 
+      "De": "No active MobileID found. Please visit https://mobileid.ch/activate and activate your MobileID. (DE)", 
+      "Fr": "No active MobileID found. Please visit https://mobileid.ch/activate and activate your MobileID. (FR)", 
+      "It": "No active MobileID found. Please visit https://mobileid.ch/activate and activate your MobileID. (IT)", 
+      "En": "No active MobileID found. Please visit https://mobileid.ch/activate and activate your MobileID." 
     }, 
     { 
       "Key": "MidGeo_100", 
