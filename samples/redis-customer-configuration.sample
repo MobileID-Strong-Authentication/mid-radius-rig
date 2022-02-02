@@ -120,46 +120,29 @@ JSON Example Content
   "Otp": {
     "Length": 5,
     "Mode": "Text",
-    "DefaultText": "Your MobileID Code is {0}",
-    "Messages": [
-      {
-        "Code": "de",
-        "Text": "Ihr MobileID Code ist {0}"
-      },
-      {
-        "Code": "fr",
-        "Text": "Votre MobileID Code est {0}"
-      },
-      {
-        "Code": "it",
-        "Text": "Il MobileID Code è {0}"
-      },
-      {
-        "Code": "en",
-        "Text": "Your MobileID Code is {0}"
-      }
-    ]
+    "SmsText": {
+      "Default": "Ihr MobileID Code ist {0}",
+      "De": "Ihr MobileID Code ist {0}",
+      "Fr": "Votre MobileID Code est {0}",
+      "It": "Il MobileID Code è {0}",
+      "En": "Your MobileID Code is {0}"
+    },
+    "ReplyMessageText": {
+      "Default": "Geben Sie den Code ein, den Sie per SMS erhalten haben",
+      "De": "Geben Sie den Code ein, den Sie per SMS erhalten haben",
+      "Fr": "Saisissez le code que vous avez reçu par SMS",
+      "It": "Inserisci il codice che hai ricevuto via SMS}",
+      "En": "Enter the code you have received by SMS"
+    }
   },
   "SimApp": {
-    "DefaultText": "Please enter your Mobile ID code",
-    "Messages": [
-      {
-        "Code": "de",
-        "Text": "Mobile ID Code eingeben"
-      },
-      {
-        "Code": "fr",
-        "Text": "Mobile ID Code eingeben"
-      },
-      {
-        "Code": "it",
-        "Text": "Mobile ID Code eingeben"
-      },
-      {
-        "Code": "en",
-        "Text": "Please enter your Mobile ID code"
-      }
-    ]
+    "DisplayText": { 
+      "Default": "Test: Bitte mit Mobile ID authentifizieren", 
+      "De": "Test: Bitte mit Mobile ID authentifizieren", 
+      "Fr": "Test: Veuillez vous authentifier avec votre ID mobile", 
+      "It": "Test: Si prega di autenticarsi con il Mobile ID", 
+      "En": "Test: Please authenticate with Mobile ID" 
+    } 
   },
   "Events": {
     "UnusedMidServiceEvent": {
