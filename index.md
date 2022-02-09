@@ -91,14 +91,14 @@ However, One-Time-Password (OTP) authentication is not supported without the use
 
 The sample env-file contains all the configuration variables, including a sample error message configuration and customer configuration.
 
-* [ENV-file sample for using in-memory data source](https://github.com/MobileID-Strong-Authentication/mid-radius-rig/raw/main/samples/production-v0.8-noRedis.env.sample)
+* [ENV-file sample for using in-memory data source](https://github.com/MobileID-Strong-Authentication/mid-radius-rig/raw/main/samples/production-v1.0-noRedis.env.sample)
 
 #### Production
 
 In this setup can run multiple RIG container instances. Redis is used as data source and for the configuration of customers and error messages.
 You may use [Redis-Commander](https://hub.docker.com/r/rediscommander/redis-commander) to manage customer configuration easily.
 
-* [ENV-file sample for using Redis as data source](https://github.com/MobileID-Strong-Authentication/mid-radius-rig/raw/main/samples/production-v0.8.env.sample)
+* [ENV-file sample for using Redis as data source](https://github.com/MobileID-Strong-Authentication/mid-radius-rig/raw/main/samples/production-v1.0.env.sample)
 * [Sample Customer JSON](https://github.com/MobileID-Strong-Authentication/mid-radius-rig/raw/main/samples/redis-customer-configuration.sample)
 * [Sample I18N Error Message JSON](https://github.com/MobileID-Strong-Authentication/mid-radius-rig/raw/main/samples/redis-i18n-errormsg-configuration.sample)
 
