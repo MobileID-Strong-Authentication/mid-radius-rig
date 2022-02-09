@@ -76,8 +76,13 @@ JSON Example Content
   "RadiusSharedSecret": "MyVeryStrongSharedSecret",
   "UseLdap": true,
   "Ldap": {
-    "HostName": "10.0.0.5",
-    "Port": 389,
+    "Hosts" : { 
+      "Primary" : "10.0.0.5",
+      "Secondary" : "",
+      "Tertiary" : ""
+    },
+    "Port" : 389,
+    "ConnectionTimeoutSeconds" : 20,
     "EnableSsl": false,
     "AdminUser": "cn=admin,dc=mycompany,dc=ch",
     "AdminPassword": "MyAdminPassword",
