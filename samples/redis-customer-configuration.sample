@@ -142,11 +142,11 @@ JSON Example Content
   },
   "SimApp": {
     "DisplayText": { 
-      "Default": "Test: Bitte mit Mobile ID authentifizieren", 
-      "De": "Test: Bitte mit Mobile ID authentifizieren", 
-      "Fr": "Test: Veuillez vous authentifier avec votre ID mobile", 
-      "It": "Test: Si prega di autenticarsi con il Mobile ID", 
-      "En": "Test: Please authenticate with Mobile ID" 
+      "Default": "<YourMobileID-Prefix>: Bitte mit Mobile ID authentifizieren", 
+      "De": "<YourMobileID-Prefix>: Bitte mit Mobile ID authentifizieren", 
+      "Fr": "<YourMobileID-Prefix>: Veuillez vous authentifier avec votre ID mobile", 
+      "It": "<YourMobileID-Prefix>: Si prega di autenticarsi con il Mobile ID", 
+      "En": "<YourMobileID-Prefix>: Please authenticate with Mobile ID" 
     } 
   },
   "Events": {
