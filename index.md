@@ -124,7 +124,7 @@ Please make sure that both `docker-compose.yml` and `nginx.conf` exist in the sa
 $ docker-compose up --scale mid-radius-rig=3
 ```
 
-## How To Test
+## Radius Client Test
 
 `radclient` is a radius client program. It can send arbitrary radius packets to a radius server, then shows the reply. It can be used to test changes you made in the configuration of the radius server, or it  can  be  used  to monitor if a radius server is up.
 
@@ -147,6 +147,11 @@ $ echo "User-Name=<username>,User-Password=<user-password>,NAS-Identifier=<ch_my
 ```
 
 ## Troubleshooting
+#### RADIUS Client
+Please ensure that your RADIUS client settings are correctly set:
+* RADIUS client `Timeout` set to `60 seconds`. This will ensure enough time for the user to respond to the MobileID authentication request.
+* RADIUS client `Retry` set to no more than `1`. The client should not retry because there might be still a MobileID authentication session on-going.
+
 #### LDAP
 
 When troubleshooting issues it may be useful to test user credentials directly against the LDAP server.
