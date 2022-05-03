@@ -1,5 +1,7 @@
 ## MobileID Radius Interface Gateway
-Full documentation on [GitHub Pages](https://mid-radius-rig.mobileid.ch)
+Documentation in [docs](./docs)
+
+Configuration samples on [GitHub Pages](https://mid-radius-rig.mobileid.ch)
 
 ##### Docker Image links
 - [Docker Hub](https://hub.docker.com/repository/docker/mobileidch/mid-radius-rig)
