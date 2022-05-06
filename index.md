@@ -2,7 +2,15 @@
 
 ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/mobileidch/mid-radius-rig?color=green) ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/mobileidch/mid-radius-rig)
 
-This dockerized image of the MobileID Radius Interface Gateway is intended to provide RADIUS server functionality incl. MobileID MFA, Geofencing and multitenancy support. Optionally, LDAP can be configured to retrieve user attributes such as the user's user-password, mobile number, Mobile ID serial, preferred MFA option, etc.
+The RIG (RADIUS Interface Gateway) application acts as an API Gateway for Mobile ID, exposing a RADIUS interface towards the clients and using the Mobile ID API at `mobileid.swisscom.com` for translating the requests of the (RADIUS-) clients into requests for the Mobile-ID service. 
+
+![RIG Deployment Example](./images/RIG.drawio.png)
+
+The RIG application is the ideal solution in a setup in which an existing RADIUS-based network is taken from single factor authentication (User-Name + User-Password) or two-factor authentication (User-Name + User-Password plus a security device challenge) to a Multi-Factor Authentication, by customizing the authentication flow of a RADIUS session and introducing a new step that uses Mobile ID strong authentication means.
+
+During the authentication via RADIUS, an extra step will require the users to confirm the access to the service on their mobile phones.
+
+Some clients might decide to move from 1FA (one factor authentication) to 2FA: username + password and Mobile ID. Other clients might decide to stick to 2FA but replace the existing combination of username + password and security device challenge with username + password plus Mobile ID as additional MFA.
  
 Please read our integration guide in [docs](https://github.com/MobileID-Strong-Authentication/mid-radius-rig/tree/main/docs)
 
