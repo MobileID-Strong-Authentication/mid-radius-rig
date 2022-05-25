@@ -56,7 +56,7 @@ The container application `mid-radius-rig` has the following dependencies if you
 #### Default Ports
 
 - `1812/udp` Radius port, required
-- `80/tcp` Container health check port, optional
+- `80:80/tcp` Container health check port, optional
 
 #### Docker Pull
 
