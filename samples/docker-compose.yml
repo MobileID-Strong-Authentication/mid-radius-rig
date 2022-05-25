@@ -9,7 +9,11 @@ services:
     # image: public.ecr.aws/r4c1w5d3/mid-radius-rig:latest  
     hostname: "rig_gateway"
     ports:
+      # Radius Server Port (in the container)
       - "1812/udp"
+      # Map the WebServer port 80 (which provides a healthcheck endpoint) in the container to port 8055 (or any other port) on the Docker host
+      # In this case, the http://localhost:8055/health should always return "Healthy" if the container is alive
+      - "8055:80/tcp"
     links:
       - redis
     restart: always
