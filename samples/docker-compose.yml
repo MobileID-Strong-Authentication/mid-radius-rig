@@ -59,6 +59,7 @@ services:
       retries: 3
       start_period: 10s
       timeout: 3s
+      
   redis:
     image: redis:latest
     container_name: "rig_redis"
