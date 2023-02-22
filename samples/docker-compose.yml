@@ -9,7 +9,7 @@ services:
     # image: public.ecr.aws/r4c1w5d3/mid-radius-rig:latest  
     hostname: "rig_gateway"
     ports:
-      # Radius Server Port (in the container)
+      # Radius Server & Accounting Port (in the container)
       - "1812/udp"
       # Map the WebServer port 80 (which provides a healthcheck endpoint) in the container to port 8055 (or any other port) on the Docker host
       # In this case, http://localhost:8055/health should return "Healthy" if the RADIUS server inside the docker container is healthy.
@@ -27,7 +27,7 @@ services:
       - Serilog__MinimumLevel__Override__Flexinets.Radius.RadiusServer=Information
       - Serilog__MinimumLevel__Override__Flexinets.Radius.Core=Information
       - Serilog__WriteTo__0__Args__outputTemplate={Timestamp:yyyy-MM-dd HH:mm:ss.fff} {Level:u4} [{CorrelationId}] {SourceContext} - {Message:lj}{NewLine}{Exception}
-      - ENVIRONMENT=Production
+      - ASPNETCORE_ENVIRONMENT=Production
       - MID_CLIENT_CERTIFICATE=<base64-encoded-pfx>
       - RadiusServer__Port=1812
       - RadiusServer__OtpValiditySeconds=120
@@ -39,6 +39,8 @@ services:
       - Schnittstellen__MobileIdClient__SignatureTrust__ValidateSignature=true
       - Schnittstellen__MobileIdClient__SignatureTrust__ValidateSignaturePayload=true
       - Schnittstellen__MobileIdClient__ServerTrust__ValidateCertTrust=true
+      - Schnittstellen__MobileIdClient__TransactionTimeoutSeconds=60
+      - RadiusServer__DuplicatePacketHandlingExpirationSeconds=120
       # TrustStore Configuration - These values usually don't need to be changed
       # To get a correct value for the TrustStore_
       # 1) You must have the ROOT CA certificate in PEM format (which is a text file that starts with "-----BEGIN CERTIFICATE-----")
