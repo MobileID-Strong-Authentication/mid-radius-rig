@@ -28,7 +28,7 @@ services:
       - Serilog__MinimumLevel__Override__Flexinets.Radius.Core=Information
       - Serilog__WriteTo__0__Args__outputTemplate={Timestamp:yyyy-MM-dd HH:mm:ss.fff} {Level:u4} [{CorrelationId}] {SourceContext} - {Message:lj}{NewLine}{Exception}
       - ASPNETCORE_ENVIRONMENT=Production
-      - MID_CLIENT_CERTIFICATE=<base64-encoded-pfx>
+      - MID_CLIENT_CERTIFICATE=<base64-encoded-pfx-nopassword>
       - RadiusServer__Port=1812
       - RadiusServer__OtpValiditySeconds=120
       - RadiusServer__OtpMaxAllowedLoginAttempts=3
