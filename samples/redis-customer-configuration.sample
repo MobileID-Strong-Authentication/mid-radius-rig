@@ -195,31 +195,11 @@ JSON Example Content
         }
       ]
     }
-  },
-  "FortigateBehaviour":{
-    "VendorSpecificAttributeTriggerValue":"root",
-    "UserGroupSearchFilter":"(&(objectClass=groupOfNames)({0}))",
-    "FortinetLdapUserGroupMap":[
-       {
-          "ForitnetGroupName":"gu-rad_msrl_sslvpn1",
-          "LdapGroupDn":"ldap-group-dn-admin"
-       },
-       {
-          "ForitnetGroupName":"gu-rad_msrl_sslvpn2",
-          "LdapGroupDn":"ldap-group-dn-user"
-       }
-    ],
-    "FortinetAccessProfile":"none",
-    "DefaultFortinetGroupName":"no-group-found",
-    "FailAuthIfGroupUnknown":false
-   }
-}
+  }
 
 ********************************************************************************************
 OPTIONAL: FortigateBehaviour
 ********************************************************************************************
-
-... 
 "FortigateBehaviour": {
   "VendorSpecificAttributeTriggerValue": "root",
   "UserGroupSearchFilter": "(&(objectClass=groupOfNames)({0}))",
@@ -237,7 +217,6 @@ OPTIONAL: FortigateBehaviour
   "DefaultFortinetGroupName": "no-group-found",
   "FailAuthIfGroupUnknown": false
 }
-...
 
 The FortigateBehaviour's JSON section in the above example is OPTIONAL.
 - Enabling/disabling the feature: The described behaviour is implicitly activated if the attribute "Fortinet-Vdom-Name = root" (via Vendor-Specific Attributes) is set in the Access-Request Packet
