@@ -200,25 +200,28 @@ JSON Example Content
 ********************************************************************************************
 OPTIONAL: FortigateBehaviour
 ********************************************************************************************
-"FortigateBehaviour": {
-  "VendorSpecificAttributeTriggerValue": "root",
-  "UserGroupSearchFilter": "(&(objectClass=groupOfNames)(member={0}))",
-  "FortinetLdapUserGroupMap": [
-    {
-      "ForitnetGroupName": "gu-rad_msrl_sslvpn1",
-      "LdapGroupDn": "cn=Admin,ou=Groups,dc=example,dc=local"
-    },
-    {
-      "ForitnetGroupName": "gu-rad_msrl_sslvpn2",
-      "LdapGroupDn": "cn=Viewer,ou=Groups,dc=example,dc=local"
-    }
-  ],
-  "FortinetAccessProfile": "none",
-  "DefaultFortinetGroupName": "no-group-found",
-  "FailAuthIfGroupUnknown": false
-}
+"Ldap": {
+  ...
+  "FortigateBehaviour": {
+    "VendorSpecificAttributeTriggerValue": "root",
+    "UserGroupSearchFilter": "(&(objectClass=groupOfNames)(member={0}))",
+    "FortinetLdapUserGroupMap": [
+      {
+        "ForitnetGroupName": "gu-rad_msrl_sslvpn1",
+        "LdapGroupDn": "cn=Admin,ou=Groups,dc=example,dc=local"
+      },
+      {
+        "ForitnetGroupName": "gu-rad_msrl_sslvpn2",
+        "LdapGroupDn": "cn=Viewer,ou=Groups,dc=example,dc=local"
+      }
+    ],
+    "FortinetAccessProfile": "none",
+    "DefaultFortinetGroupName": "no-group-found",
+    "FailAuthIfGroupUnknown": false
+  }
+  ...
 
-The FortigateBehaviour's JSON section in the above example is OPTIONAL.
+The FortigateBehaviour's JSON section in the above example is OPTIONAL and must be inside the "Ldap" section.
 - Enabling/disabling the feature: The described behaviour is implicitly activated if the attribute "Fortinet-Vdom-Name = root" (via Vendor-Specific Attributes) is set in the Access-Request Packet
 - Procedure with activated Fortigate behaviour:
   - After reading out the user from LDAP, additionally read out all user groups by means of "UserGroupSearchFilter" (Config)
