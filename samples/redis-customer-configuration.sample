@@ -206,11 +206,11 @@ OPTIONAL: FortigateBehaviour
   "FortinetLdapUserGroupMap": [
     {
       "ForitnetGroupName": "gu-rad_msrl_sslvpn1",
-      "LdapGroupDn": "ldap-group-dn-admin"
+      "LdapGroupDn": "cn=Admin,ou=Groups,dc=example,dc=local"
     },
     {
       "ForitnetGroupName": "gu-rad_msrl_sslvpn2",
-      "LdapGroupDn": "ldap-group-dn-user"
+      "LdapGroupDn": "cn=Viewer,ou=Groups,dc=example,dc=local"
     }
   ],
   "FortinetAccessProfile": "none",
