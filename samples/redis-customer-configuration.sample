@@ -221,24 +221,26 @@ OPTIONAL: FortigateBehaviour
   }
   ...
 
-The FortigateBehaviour's JSON section in the above example is OPTIONAL and must be inside the "Ldap" section.
-- Enabling/disabling the feature: The described behaviour is implicitly activated if the attribute "Fortinet-Vdom-Name = root" (via Vendor-Specific Attributes) is set in the Access-Request Packet
-- Procedure with activated Fortigate behaviour:
-  - After reading out the user from LDAP, additionally read out all user groups by means of "UserGroupSearchFilter" (Config)
-  - Match the user groups against "FortinetLdapUserGroupMap" (Config) and read out the mapped Fortigate group. The FIRST matching group is taken!
+The "FortigateBehaviour" section in the above example is OPTIONAL. You can use this feature if you want Fortinet VSA (Vendor Specific Attribute) behaviour.
+- Enabling/disabling the feature: The described behaviour is triggered...
+  ...if the Vendor Specific Attribute "Fortinet-Vdom-Name" is present in the incoming RADIUS Access-Request Packet
+  ...and the value of this "Fortinet-Vdom-Name" attribute matches the value set in "VendorSpecificAttributeTriggerValue"
+- Procedure if the Fortigate behaviour is triggered:
+  - After reading out the username (by means of "UserSearchFilter") from the LDAP host, additionally read out all user groups by means of "UserGroupSearchFilter" (Config)
+  - Match the user groups against "FortinetLdapUserGroupMap"->"LdapGroupDn"-value and read out the mapped "ForitnetGroupName" value. 
+    The FIRST matching group is taken!
   - The following cases are then distinguished in the radius response:
-    - Fortigate group found: Enrich Access-Accept with the following (Vendor-Specific) attributes:
-      => Fortinet-Vdom-Name = "root" (taken from Access-Request)
-      => Fortinet-Group-Name = {{ matching Fortigate group }}
-      => Fortinet-Access-Profile = {{ "FortinetAccessProfile" (Config) }} 
-    - Fortigate group not found:
-      -> If "FailAuthIfGroupUnknown = true": Access-Reject with corresponding error
-      -> If "FailAuthIfGroupUnknown = false": Enrich Access-Accept with the following attributes:
-         => Fortinet-Vdom-Name = "root" (taken from Access-Request)
-         => Fortinet-Group-Name = {{ "DefaultFortinetGroupName" (Config) }}"
-         => Fortinet Access Profile = {{ "FortinetAccessProfile" (Config) }}" 
+    - Fortigate group match found: Enrich Access-Accept with the following Fortinet Vendor Specific Attributes:
+      => Fortinet-Vdom-Name = "root" (taken from Access-Request's "Fortinet-Vdom-Name"-attribute)
+      => Fortinet-Group-Name = {{ value of the matching "ForitnetGroupName" configuration, e.g. "gu-rad_msrl_sslvpn1" }}
+      => Fortinet-Access-Profile = {{ value of the "FortinetAccessProfile" configuration, e.g. "none" }} 
+    - Fortigate group not found (no matching group):
+      -> If "FailAuthIfGroupUnknown" set to true: Access-Reject with corresponding error
+      -> If "FailAuthIfGroupUnknown" set to false: Enrich Access-Accept with the following attributes:
+         => Fortinet-Vdom-Name = "root" (taken from Access-Request's "Fortinet-Vdom-Name"-attribute)
+         => Fortinet-Group-Name = {{ value of the "DefaultFortinetGroupName" configuration, e.g. "no-group-found" }}
+         => Fortinet Access Profile = {{ value of the "FortinetAccessProfile" configuration, e.g. "none" }} 
 
-Additional Infos:
+References:
 - https://www.rfc-editor.org/rfc/rfc2865#section-5.26
-- Possible query to get all user groups: (&(objectCategory=group){0})
 - https://www.fortinetguru.com/2016/06/authentication-servers/4/
