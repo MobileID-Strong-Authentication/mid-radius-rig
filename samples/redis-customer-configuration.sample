@@ -206,7 +206,7 @@ OPTIONAL: FortigateBehaviour
   ...
   "FortigateBehaviour": {
     "VendorSpecificAttributeTriggerValue": "root",
-    "UserGroupSearchFilter": "(&(objectClass=groupOfNames)(member={0}))",
+    "UserGroupSearchFilter": "(&(objectClass=groupOfNames)(member={userdn}))",
     "FortinetLdapUserGroupMap": [
       {
         "ForitnetGroupName": "gu-rad_msrl_sslvpn1",
