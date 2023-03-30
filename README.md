@@ -2,7 +2,7 @@
 
 [![GitHub release](https://img.shields.io/github/v/release/MobileID-Strong-Authentication/mid-radius-rig?display_name=tag&sort=semver&style=for-the-badge)](https://github.com/MobileID-Strong-Authentication/mid-radius-rig/releases/latest)
 
-Documentation in [docs](./docs)
+Documentation in the sub-folder [doc](./doc)
 
 Configuration samples on [GitHub Pages](https://mid-radius-rig.mobileid.ch)
 
