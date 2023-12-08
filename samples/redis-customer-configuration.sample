@@ -86,7 +86,7 @@ JSON Example Content
     "EnableSsl": false,
     "AdminUser": "cn=admin,dc=mycompany,dc=ch",
     "AdminPassword": "MyAdminPassword",
-    "FollowReferrals": "false",
+    "FollowReferrals": false,
     "DefaultSearchScope": "LDAP_SCOPE_SUBTREE",
     "UserSearchBase": "ou=users,dc=mycompany,dc=ch",
     "UserSearchFilter": "(&(objectclass=person)(|(sAMAccountName={username})(userPrincipalName={username})))",
@@ -101,16 +101,24 @@ JSON Example Content
         "App": "App",
         "Otp": "Otp"
       }
-    }
+    },
+      "Geofencing":{
+         "Activate":true,
+         "GeofencingSearchBase":"dc=mycompany,dc=ch",
+         "UserGeoGroupSearchFilter":"(&(objectClass=groupOfNames)(member={userdn})(ou=geo-groups))",
+         "CountriesSearchFilter":"(objectClass=country)",
+         "MinimalDeviceConfidence":0.7,
+         "MinimalLocationConfidence":0.7,
+         "FailAuthIfGroupMissing":true,
+         "BlacklistGroupPrefix":"blacklist-",
+         "WhitelistGroupPrefix":"whitelist-"
+      }
   },
   "Geofencing": {
     "Activate": true,
     "Whitelist": [
       "CH",
       "DE"
-    ],
-    "Blacklist": [
-      "US"
     ],
     "MinimalDeviceConfidence": 0.7,
     "MinimalLocationConfidence": 0.7
