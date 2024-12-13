@@ -12,7 +12,7 @@ During the authentication via RADIUS, an extra step will require the users to co
 
 Some clients might decide to move from 1FA (one factor authentication) to 2FA: username + password and Mobile ID. Other clients might decide to stick to 2FA but replace the existing combination of username + password and security device challenge with username + password plus Mobile ID as additional MFA.
  
-Please read our integration guide in [docs](https://github.com/MobileID-Strong-Authentication/mid-radius-rig/tree/main/docs)
+Please read our integration guide in [docs](https://github.com/MobileID-Strong-Authentication/mid-radius-rig/tree/main/doc)
 
 ### Features available with latest docker image
 - Multitenancy Support
@@ -37,9 +37,9 @@ Please read our integration guide in [docs](https://github.com/MobileID-Strong-A
 
 In order to run this container you'll need docker installed.
 
-- [Windows](https://docs.docker.com/windows/started)
-- [OS X](https://docs.docker.com/mac/started/)
-- [Linux](https://docs.docker.com/linux/started/)
+- [Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
+- [OS X](https://docs.docker.com/desktop/setup/install/mac-install/)
+- [Linux](https://docs.docker.com/desktop/setup/install/linux/)
 
 In order to invoke MobileID MFA you'll need to have:
 
